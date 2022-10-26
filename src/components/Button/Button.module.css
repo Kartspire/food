@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  font-size: 18px;
+  color: white;
+  border: none;
+  border-radius: 7px;
+}
+
+.disabled {
+  background: gray;
+}
+
+.primary {
+  background: #ff0000;
+}
+.secondary {
+  color: black;
+  background: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+}
