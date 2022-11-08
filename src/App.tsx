@@ -7,44 +7,43 @@ import { CardsList } from './components/CardsList';
 import { Card } from './components/CardsList/Card';
 import { Loader, LoaderSize } from './components/Loader';
 import { WithLoader } from './components/WithLoader';
+import { Dropdown } from './components/Dropdown';
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
   const [recipesArr, setRecipesArr] = useState([]);
-  const buttonHandler = () => {
+
+  const dropdownRecipesHandler = (recipeType: string) => {
+    console.log(recipeType);
     setLoading((prev) => !prev);
     const getRecipes = async () => {
       const recipes = await axios({
         method: 'get',
         // url: 'https://api.spoonacular.com/food/ingredients/search?apiKey=9c3b5bc6a42a4f14949445caa1b31477',
-        url: 'https://api.spoonacular.com/recipes/complexSearch?apiKey=9c3b5bc6a42a4f14949445caa1b31477',
+        url: `https://api.spoonacular.com/food/search?query=${recipeType}&number=15&apiKey=9c3b5bc6a42a4f14949445caa1b31477`,
       });
       return recipes;
     };
     getRecipes().then((res) => {
+      console.log(res);
       setLoading((prev) => !prev);
-      setRecipesArr(res.data.results);
-      console.log(res.data.results);
+      setRecipesArr(res.data.searchResults[0].results);
+      console.log(res.data.searchResults[0].results);
     });
-    console.log(loading);
   };
-  const cardHandler = () => {
+
+  const cardBtnHandler = () => {
     console.log('Card info');
   };
+
   return (
     <div className="container">
-      <WithLoader loading={false}>
-        <div>Привет как дела</div>
-      </WithLoader>
-      <Button
-        color={ButtonColor.primary}
-        loading={loading}
-        onClick={buttonHandler}
-        disabled={loading}
-      >
-        заказать
-      </Button>
-      <CardsList recipes={recipesArr} cardClick={cardHandler}></CardsList>
+      <Dropdown
+        menu={['pizza', 'apple', 'burger']}
+        defaultValue="Выбрать категорию"
+        onClick={dropdownRecipesHandler}
+      ></Dropdown>
+      <CardsList recipes={recipesArr} cardClick={cardBtnHandler}></CardsList>
     </div>
   );
 };

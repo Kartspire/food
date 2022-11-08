@@ -1,4 +1,4 @@
-.button {
+.standardBtn {
   display: flex;
   justify-content: space-between;
   padding: 8px 20px;
@@ -18,4 +18,16 @@
 .secondary {
   color: black;
   background: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+}
+
+.roundBtn {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #ff0000;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%;
+  background-repeat: no-repeat;
 }

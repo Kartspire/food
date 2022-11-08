@@ -1,26 +1,32 @@
+import { Button, ButtonColor } from '../../Button';
 import styles from './Card.module.css';
 interface ICardProps {
   key: number;
   image: string;
-  title: string;
+  name: string;
   // ingredients: string;
   // kcal: string;
   onClick: React.MouseEventHandler;
 }
 export const Card = ({
   image,
-  title,
+  name,
   // ingredients,
   // kcal,
   onClick,
 }: ICardProps) => {
   return (
-    <li onClick={onClick} className={styles.card}>
+    <li className={styles.card}>
       {/* <Rating></Rating> */}
       <img src={image} alt="" className={styles.image} />
-      <h3>{title}</h3>
+      <h3>{name}</h3>
       {/* <p>{ingredients}</p>
     <span>{kcal}</span> */}
+      <Button
+        onClick={onClick}
+        color={ButtonColor.primary}
+        form="roundBtn"
+      ></Button>
     </li>
   );
 };

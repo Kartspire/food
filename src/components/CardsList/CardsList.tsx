@@ -7,7 +7,7 @@ interface IRecipe {
   id: number;
   image: string;
   imageType: string;
-  title: string;
+  name: string;
 }
 
 interface ICardsList {
@@ -17,7 +17,7 @@ interface ICardsList {
 
 export function CardsList({ recipes, cardClick }: ICardsList) {
   const cards = recipes.map((el) => (
-    <Card key={el.id} image={el.image} title={el.title} onClick={cardClick} />
+    <Card key={el.id} image={el.image} name={el.name} onClick={cardClick} />
   ));
   return <ul className={styles.cardsList}>{cards}</ul>;
 }

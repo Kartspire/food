@@ -1,0 +1,17 @@
+.select {
+  padding: 8px 20px 8px 15px;
+  border: none;
+  border-radius: 7px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+}
+
+.select:focus {
+  outline: none;
+}
+.option {
+  border: none;
+  background: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+}

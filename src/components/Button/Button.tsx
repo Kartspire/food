@@ -9,6 +9,9 @@ export enum ButtonColor {
 type ButtonProps = React.PropsWithChildren<{
   loading?: boolean;
   color: ButtonColor;
+  form: string;
+  key?: number;
+  onClick: React.MouseEventHandler;
 }> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -16,9 +19,9 @@ export const Button = (props: ButtonProps) => {
   return (
     <button
       onClick={props.onClick}
-      className={`${styles.button} ${
+      className={`${styles[props.form]} ${
         (props.disabled && styles.disabled) || styles[props.color]
-      }`}
+      } `}
       disabled={props.disabled}
     >
       {props.children}
