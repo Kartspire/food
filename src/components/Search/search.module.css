@@ -1,0 +1,11 @@
+.search {
+  margin-bottom: 20px;
+  padding: 8px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(98.81deg, #fff0f0 -0.82%, #ffdfdf 101.53%);
+}
+.search:focus {
+  outline-color: #ff0000 50%;
+}

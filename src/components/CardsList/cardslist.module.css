@@ -1,7 +1,9 @@
 .cardsList {
+  max-width: 1060px;  
+  margin: 0 auto;
   padding: 0;
   display: flex;
   flex-flow: row wrap;
-  justify-content: start;
+  justify-content: space-between;
   list-style: none;
 }

@@ -5,31 +5,40 @@ import styles from './dropdown.module.css';
 type DropdownProps = React.PropsWithChildren<{
   menu: string[];
   defaultValue: string;
-  onClick(prop: string): React.MouseEventHandler;
+  onClick(prop: string): void;
 }>;
 
 export const Dropdown = ({ menu, defaultValue, onClick }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const dropdownControlHandler = () => {
     setIsOpen((prev) => !prev);
   };
+
   const searchRecipes = menu.map((el, index) => (
     <Button
       key={index}
       color={ButtonColor.secondary}
-      form="standard"
-      onClick={(el) => onClick(el)}
+      form="standardBtn"
+      onClick={() => {
+        onClick(el);
+        setIsOpen((prev) => !prev);
+      }}
     >
       {el}
     </Button>
   ));
   return (
-    <Button
-      onClick={() => setIsOpen((prev) => !prev)}
-      form="standard"
-      color={ButtonColor.secondary}
-    >
-      {isOpen ?? searchRecipes}
-    </Button>
+    <div className={styles.dropdownContainer}>
+      <Button
+        class={styles.select}
+        onClick={dropdownControlHandler}
+        form="standardBtn"
+        color={ButtonColor.secondary}
+      >
+        Выберите рецепт
+      </Button>
+      {isOpen && <div className={styles.optionsContainer}>{searchRecipes}</div>}
+    </div>
   );
 };

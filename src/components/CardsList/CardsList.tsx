@@ -1,4 +1,3 @@
-import { link } from 'fs';
 import React from 'react';
 import { Card } from './Card/Card';
 import styles from './cardslist.module.css';
@@ -8,16 +7,22 @@ interface IRecipe {
   image: string;
   imageType: string;
   name: string;
+  content: string;
 }
 
 interface ICardsList {
   recipes: IRecipe[];
-  cardClick: React.MouseEventHandler;
 }
 
-export function CardsList({ recipes, cardClick }: ICardsList) {
+export function CardsList({ recipes }: ICardsList) {
   const cards = recipes.map((el) => (
-    <Card key={el.id} image={el.image} name={el.name} onClick={cardClick} />
+    <Card
+      key={el.id}
+      id={el.id}
+      image={el.image}
+      name={el.name}
+      content={el.content}
+    />
   ));
   return <ul className={styles.cardsList}>{cards}</ul>;
 }

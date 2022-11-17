@@ -8,5 +8,6 @@
 }
 
 svg {
+  margin-bottom: 47px;
   animation: spin 1s linear 0s infinite;
 }

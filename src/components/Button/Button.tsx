@@ -11,6 +11,7 @@ type ButtonProps = React.PropsWithChildren<{
   color: ButtonColor;
   form: string;
   key?: number;
+  class?: string;
   onClick: React.MouseEventHandler;
 }> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -21,7 +22,7 @@ export const Button = (props: ButtonProps) => {
       onClick={props.onClick}
       className={`${styles[props.form]} ${
         (props.disabled && styles.disabled) || styles[props.color]
-      } `}
+      } ${props.class} `}
       disabled={props.disabled}
     >
       {props.children}
