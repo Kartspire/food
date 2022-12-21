@@ -2,6 +2,7 @@
   "name": "frontend-hw-2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Kartspire.github.io/food",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -25,7 +26,8 @@
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deploy": "gh-pages -d build"
   },
   "prettier": {
     "singleQuote": true
@@ -54,6 +56,7 @@
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "sass": "^1.54.3",
     "webpack": "^5.74.0"
